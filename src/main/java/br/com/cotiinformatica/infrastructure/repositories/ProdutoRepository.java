@@ -13,6 +13,6 @@ import br.com.cotiinformatica.domain.entities.Produto;
 @Repository
 public interface ProdutoRepository extends JpaRepository<Produto, UUID> {
 
-	@Query("SELECT p FROM produto p WHERE p.tipo = :tipo")
+	@Query("SELECT p FROM Produto p WHERE p.tipo = :tipo")
 	List<Produto> findProdutoByTipo(@Param("tipo") String tipo);
 }
