@@ -96,6 +96,7 @@ public class ProdutoDomainServiceImpl implements ProdutoDomainService {
 			precoUnitarioMedioMaterial = precoUnitarioMedioMaterial.add(produto.getPrecoUnitario());
 		}
 		
+		precoUnitarioMedioMaterial = precoUnitarioMedioMaterial.divide(BigDecimal.valueOf(quantidadeMaterial));
 		produtosDashboard.add(new ProdutoDashboard(Tipo.MATERIAL, quantidadeMaterial, precoUnitarioMedioMaterial));
 		
 		Integer quantidadeServico = 0;
@@ -108,6 +109,7 @@ public class ProdutoDomainServiceImpl implements ProdutoDomainService {
 			precoUnitarioMedioServico = precoUnitarioMedioServico.add(produto.getPrecoUnitario());
 		}
 		
+		precoUnitarioMedioServico = precoUnitarioMedioServico.divide(BigDecimal.valueOf(quantidadeServico));
 		produtosDashboard.add(new ProdutoDashboard(Tipo.SERVIÇO, quantidadeServico, precoUnitarioMedioServico));
 		
 		return produtosDashboard;

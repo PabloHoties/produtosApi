@@ -1,6 +1,5 @@
 package br.com.cotiinformatica.application.controllers;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
@@ -19,7 +18,6 @@ import br.com.cotiinformatica.domain.dtos.ProdutoDashboard;
 import br.com.cotiinformatica.domain.dtos.ProdutoRequestDto;
 import br.com.cotiinformatica.domain.dtos.ProdutoResponseDto;
 import br.com.cotiinformatica.domain.interfaces.ProdutoDomainService;
-import br.com.cotiinformatica.infrastructure.repositories.ProdutoRepository;
 import jakarta.validation.Valid;
 
 @RestController
@@ -56,9 +54,6 @@ public class ProdutoController {
 	
 	@GetMapping("/dashboard")
 	public ResponseEntity<List<ProdutoDashboard>> dashboard() throws Exception {
-		List<ProdutoDashboard> response = produtoDomainService.dashboard();
-		return ResponseEntity.status(200).body(response);
-		
-		//return ResponseEntity.status(200).body(produtoDomainService.dashboard());
+		return ResponseEntity.status(200).body(produtoDomainService.dashboard());
 	}
 }
